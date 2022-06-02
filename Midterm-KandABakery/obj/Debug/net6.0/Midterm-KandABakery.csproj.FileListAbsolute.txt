@@ -1,0 +1,15 @@
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.exe
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.deps.json
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.runtimeconfig.json
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.dll
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.pdb
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.csproj.AssemblyReference.cache
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.AssemblyInfoInputs.cache
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.AssemblyInfo.cs
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.csproj.CoreCompileInputs.cache
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.dll
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\refint\Midterm-KandABakery.dll
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.pdb
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.genruntimeconfig.cache
+C:\Users\xando\source\repos\Midterm-KandABakery\Midterm-KandABakery\obj\Debug\net6.0\ref\Midterm-KandABakery.dll
