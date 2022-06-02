@@ -73,19 +73,22 @@ while (runningProgram)
                             {
                                 Console.Write("Your bakery item choice: ");
                                 string bakeryChoice = Console.ReadLine();
-                                foreach (var item in ourInventory)
+                                bool itemIsPresent = false;
+                                for (int i = 0; i < inventory.Products.Count; i++)
                                 {
-                                    if (item.Key.Name == bakeryChoice)
+                                    if (inventory.Products.ElementAt(i).Key.Name==bakeryChoice)
                                     {
-                                        userSelections.Add(item.Key);
+                                        itemIsPresent = true;
+                                        userSelections.Add(inventory.Products.ElementAt(i).Key);
                                         gettingBakeryItem=false;
                                     }
-                                    else
-                                    {
-                                        Console.WriteLine("Sorry, there is no bakery item by that name. Please try again.");
-                                    }
                                 }
-
+                                if (!itemIsPresent)
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("Sorry, that item was not found on the menu. Please try again.");
+                                    Console.WriteLine();
+                                }
                             }
                             Console.WriteLine();
                             if (userSelections.Count!=0)
