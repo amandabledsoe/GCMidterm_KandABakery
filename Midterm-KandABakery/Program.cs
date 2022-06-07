@@ -131,7 +131,80 @@ while (runningProgram)
                         }
                         else if (orderNumber2 == 2)
                         {
-                            //coffeitems
+                            PauseAndClearScreen();
+                            List<Product> userSelections = new List<Product>();
+                            Console.WriteLine(" You have selected coffee Item!");
+                            Console.WriteLine();
+                            Console.WriteLine("Here is our menu of coffee items:");
+                            Console.WriteLine("-----------------------------------------------------------");
+                            foreach (var item in inventory.Products)
+                            {
+                                if (item.Key.Category == Category.CoffeeItem)
+                                {
+                                    Console.WriteLine($"{item.Key.Name}\t\tQuantity Available: {item.Value}");
+                                }
+                            }
+                            Console.WriteLine();
+                            Console.WriteLine("Which coffee item would you like?");
+                            bool gettingCoffeeItem = true;
+                            while (gettingCoffeeItem)
+                            {
+                                Console.Write("Your coffee item choice: ");
+                                string coffeeChoice = Console.ReadLine();
+                                bool coffeeitemIsPresent = false;
+                                for (int i = 0; i < inventory.Products.Count; i++)
+                                {
+                                    if (inventory.Products.ElementAt(i).Key.Name == coffeeChoice)
+                                    {
+                                        coffeeitemIsPresent = true;
+                                        Product selection = inventory.Products.ElementAt(i).Key;
+
+                                        Console.WriteLine($"How many cups of {coffeeChoice} would you like?");
+                                        string cupQuantity = Console.ReadLine();
+                                        bool isANumber3 = int.TryParse(cupQuantity, out int theCupQuantity);
+                                        if (isANumber3)
+                                        {
+                                            inventory.Products.TryGetValue(selection, out int CountOnHand);
+                                            if (CountOnHand >= theCupQuantity)
+                                            {
+                                                userCart.Add(selection, theCupQuantity);
+                                                inventory.Products[selection] = CountOnHand - theCupQuantity;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine();
+                                            Console.WriteLine("Sorry, that doesn't seem to be a number. Please try again.");
+                                            Console.WriteLine();
+                                        }
+
+                                        gettingCoffeeItem = false;
+                                    }
+                                }
+                                if (!coffeeitemIsPresent)
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("Sorry, that item was not found on the menu. Please try again.");
+                                    Console.WriteLine();
+                                }
+                            }
+                            Console.WriteLine();
+                            if (userCart.Count != 0)
+                            {
+                                Console.WriteLine("Here is your cart currently");
+                                foreach (var item in userCart)
+                                {
+                                    Console.WriteLine($"{item.Key.Name}\t\t{item.Value}");
+                                }
+                                Console.WriteLine();
+                                foreach (var item in inventory.Products)
+                                {
+                                    Console.WriteLine($"Item: {item.Key.Name}\t\tCount On Hand:{item.Value}");
+                                }
+                            }
+                            PauseAndClearScreen();
+
+                            gettingCoffeeItem = false;
                         }
                         else if (orderNumber2 == 3)
                         {
