@@ -1,16 +1,35 @@
 ﻿using Midterm_KandABakery;
 
-Product product1 = new Product("Lemon Loaf", Category.BakeryItem, "Delicious Lemony Goodness", 1.99m);
-Product product2 = new Product("Plain Bagel", Category.BakeryItem, "Just a Plain Bagel", 1.50m);
-Product product3 = new Product("GWiz Espresso Shot", Category.CoffeeItem, "Pure Craziness in a Cup", 4.53m);
-Product product4 = new Product("Americano", Category.CoffeeItem, "Coffeee + Espresso", 2.19m);
+//BAKERY ITEMS
+Product product1 = new Product("Talon's Loaf of Lemon", Category.BakeryItem, "Delicious & Royal Lemony Goodness", 1.99m);
+Product product2 = new Product("Agent JSmith Plain Bagel", Category.BakeryItem, "The Choice of John Smith's & Jane Doe's everywhere", 1.50m);
+Product product3 = new Product("DLux Double Chocolate Brownie", Category.BakeryItem, "Pairs Well with Any & All Coffees", 2.99m);
+Product product4 = new Product("The Kaige Kupkake", Category.BakeryItem, "Pairs Well with Any & All Coffees", 2.99m);
+Product product5 = new Product("Christy's Boysenberry Scone", Category.BakeryItem, "Unique & Flavorful", 2.99m);
+Product product6 = new Product("Hussein's Niche Quiche", Category.BakeryItem, "Tastes great & fits with any meal", 2.99m);
+
+//COFFEE ITEMS
+Product product7 = new Product("GWiz Espresso Shot", Category.CoffeeItem, "Pure Craziness in a Cup", 4.53m);
+Product product8 = new Product("Bret Americano", Category.CoffeeItem, "Coffeee + Espresso", 2.19m);
+Product product9 = new Product("Dominion's Decaf", Category.CoffeeItem, "Black & Bitter", 2.19m);
+Product product10 = new Product("Alex's Mustachio Matcha Latte", Category.CoffeeItem, "Smooth but Different", 2.19m);
+Product product11 = new Product("Karen's Kombucha", Category.CoffeeItem, "Peppy, Sweet, & Helps Ya Get Sh!t Done!", 2.19m);
+Product product12 = new Product("Antonio's Somethin' Yummy", Category.CoffeeItem, "Mystery Deliciosity with Caffeine", 2.19m);
 
 Dictionary<Product, int> ourInventory = new Dictionary<Product, int>()
 {
-    {product1,48},
-    {product2,36},
-    {product3,500},
-    {product4,250}
+    {product1,50},
+    {product2,72},
+    {product3,420},
+    {product4,120},
+    {product5,50},
+    {product6,36},
+    {product7,500},
+    {product8,250},
+    {product9,20},
+    {product10,200},
+    {product11,200},
+    {product12,50}
 };
 
 Inventory inventory = new Inventory(ourInventory);
@@ -55,7 +74,6 @@ while (runningProgram)
                         if (orderNumber2 == 1)
                         {
                             PauseAndClearScreen();
-                            List<Product> userSelections = new List<Product>();
                             Console.WriteLine(" You have selected Bakery Item!");
                             Console.WriteLine();
                             Console.WriteLine("Here is our menu of bakery items:");
@@ -131,67 +149,105 @@ while (runningProgram)
                         }
                         else if (orderNumber2 == 2)
                         {
+                            //coffeitems - Kelly is working on this part
+                        }
+                        else if (orderNumber2 == 3)
+                        {
                             PauseAndClearScreen();
-                            List<Product> userSelections = new List<Product>();
-                            Console.WriteLine(" You have selected coffee Item!");
-                            Console.WriteLine();
-                            Console.WriteLine("Here is our menu of coffee items:");
+                            Console.WriteLine("You have selected Pick 2!");
+                            PauseAndClearScreen();
+                            Console.WriteLine("First, let's choose your bakery item.");
+                            Console.WriteLine("Here is our menu of bakery items:");
                             Console.WriteLine("-----------------------------------------------------------");
                             foreach (var item in inventory.Products)
                             {
-                                if (item.Key.Category == Category.CoffeeItem)
+                                if (item.Key.Category == Category.BakeryItem)
                                 {
                                     Console.WriteLine($"{item.Key.Name}\t\tQuantity Available: {item.Value}");
                                 }
                             }
                             Console.WriteLine();
-                            Console.WriteLine("Which coffee item would you like?");
-                            bool gettingCoffeeItem = true;
-                            while (gettingCoffeeItem)
+                            Console.WriteLine();
+                            Console.WriteLine("Which bakery item would you like?");
+                            bool gettingPick2BakeryItem = true;
+                            while (gettingPick2BakeryItem)
                             {
-                                Console.Write("Your coffee item choice: ");
-                                string coffeeChoice = Console.ReadLine();
-                                bool coffeeitemIsPresent = false;
+                                Console.Write("Your bakery item choice: ");
+                                string bakeryChoice = Console.ReadLine();
+                                bool bakeryItemIsPresent = false;
                                 for (int i = 0; i < inventory.Products.Count; i++)
                                 {
-                                    if (inventory.Products.ElementAt(i).Key.Name == coffeeChoice)
+                                    if (inventory.Products.ElementAt(i).Key.Name == bakeryChoice)
                                     {
-                                        coffeeitemIsPresent = true;
-                                        Product selection = inventory.Products.ElementAt(i).Key;
-
-                                        Console.WriteLine($"How many cups of {coffeeChoice} would you like?");
-                                        string cupQuantity = Console.ReadLine();
-                                        bool isANumber3 = int.TryParse(cupQuantity, out int theCupQuantity);
-                                        if (isANumber3)
+                                        bakeryItemIsPresent = true;
+                                        Product bakerySelection = inventory.Products.ElementAt(i).Key;
+                                        inventory.Products.TryGetValue(bakerySelection, out int CountOnHand);
+                                        if (CountOnHand >= 1)
                                         {
-                                            inventory.Products.TryGetValue(selection, out int CountOnHand);
-                                            if (CountOnHand >= theCupQuantity)
-                                            {
-                                                userCart.Add(selection, theCupQuantity);
-                                                inventory.Products[selection] = CountOnHand - theCupQuantity;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine();
-                                            Console.WriteLine("Sorry, that doesn't seem to be a number. Please try again.");
-                                            Console.WriteLine();
+                                            userCart.Add(bakerySelection, 1);
+                                            inventory.Products[bakerySelection] = CountOnHand - 1;
                                         }
 
-                                        gettingCoffeeItem = false;
+                                        gettingPick2BakeryItem = false;
                                     }
                                 }
-                                if (!coffeeitemIsPresent)
+                                if (!bakeryItemIsPresent)
                                 {
                                     Console.WriteLine();
                                     Console.WriteLine("Sorry, that item was not found on the menu. Please try again.");
                                     Console.WriteLine();
                                 }
                             }
+                            PauseAndClearScreen();
+                            bool gettingPick2CoffeeItem = true;
+                            while (gettingPick2CoffeeItem)
+                            {
+                                Console.WriteLine("Next, let's choose your coffee item.");
+                                Console.WriteLine("Here is our menu of coffee items:");
+                                Console.WriteLine("-----------------------------------------------------------");
+                                foreach (var item in inventory.Products)
+                                {
+                                    if (item.Key.Category == Category.CoffeeItem)
+                                    {
+                                        Console.WriteLine($"{item.Key.Name}\t\tQuantity Available: {item.Value}");
+                                    }
+                                }
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine("Which coffee item would you like?");
+                                Console.Write("Your coffee item choice: ");
+                                string coffeeChoice = Console.ReadLine();
+                                bool coffeeItemIsPresent = false;
+                                for (int i = 0; i < inventory.Products.Count; i++)
+                                {
+                                    if (inventory.Products.ElementAt(i).Key.Name == coffeeChoice)
+                                    {
+                                        coffeeItemIsPresent = true;
+                                        Product coffeeSelection = inventory.Products.ElementAt(i).Key;
+                                        inventory.Products.TryGetValue(coffeeSelection, out int CountOnHand);
+                                        if (CountOnHand >= 1)
+                                        {
+                                            userCart.Add(coffeeSelection, 1);
+                                            inventory.Products[coffeeSelection] = CountOnHand - 1;
+                                        }
+
+                                        gettingPick2CoffeeItem = false;
+                                    }
+                                }
+                                if (!coffeeItemIsPresent)
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("Sorry, that item was not found on the menu. Please try again.");
+                                    Console.WriteLine();
+                                }
+
+                                gettingPick2CoffeeItem = false;
+                            }
                             Console.WriteLine();
                             if (userCart.Count != 0)
                             {
-                                Console.WriteLine("Here is your cart currently");
+                                Console.WriteLine("Here is your cart currently:");
+                                Console.WriteLine("Item\t\tQuantity");
                                 foreach (var item in userCart)
                                 {
                                     Console.WriteLine($"{item.Key.Name}\t\t{item.Value}");
@@ -203,12 +259,7 @@ while (runningProgram)
                                 }
                             }
                             PauseAndClearScreen();
-
-                            gettingCoffeeItem = false;
-                        }
-                        else if (orderNumber2 == 3)
-                        {
-                            //pick 2
+                            gettingBakeryChoice = false;
                         }
                         else
                         {
