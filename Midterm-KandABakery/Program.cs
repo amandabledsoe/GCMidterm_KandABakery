@@ -14,6 +14,7 @@ Dictionary<Product, int> ourInventory = new Dictionary<Product, int>()
 };
 
 Inventory inventory = new Inventory(ourInventory);
+Dictionary<Product, int> userCart = new Dictionary<Product, int>();
 
 Console.WriteLine("Welcome to the K & A Bakery!");
 PauseAndClearScreen();
@@ -59,7 +60,7 @@ while (runningProgram)
                             Console.WriteLine();
                             Console.WriteLine("Here is our menu of bakery items:");
                             Console.WriteLine("-----------------------------------------------------------");
-                            foreach (var item in ourInventory)
+                            foreach (var item in inventory.Products)
                             {
                                 if (item.Key.Category == Category.BakeryItem)
                                 {
@@ -79,8 +80,28 @@ while (runningProgram)
                                     if (inventory.Products.ElementAt(i).Key.Name==bakeryChoice)
                                     {
                                         itemIsPresent = true;
-                                        userSelections.Add(inventory.Products.ElementAt(i).Key);
-                                        gettingBakeryItem=false;
+                                        Product selection = inventory.Products.ElementAt(i).Key;
+
+                                        Console.WriteLine($"How many {bakeryChoice} would you like?");
+                                        string userQuantity = Console.ReadLine();
+                                        bool isANumber1 = int.TryParse(userQuantity, out int theQuantity);
+                                        if (isANumber1)
+                                        {
+                                            inventory.Products.TryGetValue(selection, out int CountOnHand);
+                                            if (CountOnHand>=theQuantity)
+                                            {
+                                                userCart.Add(selection, theQuantity);
+                                                inventory.Products[selection] = CountOnHand - theQuantity;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine();
+                                            Console.WriteLine("Sorry, that doesn't seem to be a number. Please try again.");
+                                            Console.WriteLine();
+                                        }
+
+                                        gettingBakeryItem =false;
                                     }
                                 }
                                 if (!itemIsPresent)
@@ -91,12 +112,17 @@ while (runningProgram)
                                 }
                             }
                             Console.WriteLine();
-                            if (userSelections.Count!=0)
+                            if (userCart.Count!=0)
                             {
                                 Console.WriteLine("Here is your cart currently");
-                                foreach (var item in userSelections)
+                                foreach (var item in userCart)
                                 {
-                                    Console.WriteLine($"{item.Name}");
+                                    Console.WriteLine($"{item.Key.Name}\t\t{item.Value}");
+                                }
+                                Console.WriteLine();
+                                foreach (var item in inventory.Products)
+                                {
+                                    Console.WriteLine($"Item: {item.Key.Name}\t\tCount On Hand:{item.Value}");
                                 }
                             }
                             PauseAndClearScreen();
