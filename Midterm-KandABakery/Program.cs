@@ -44,6 +44,8 @@ while (runningProgram)
     bool gettingInput = true;
     while (gettingInput)
     {
+        Console.WriteLine("MAIN MENU");
+        Console.WriteLine();
         Console.WriteLine("What would you like to do?");
         Console.WriteLine("1. Place an Order");
         Console.WriteLine("2. Complete an Order");
@@ -338,6 +340,73 @@ while (runningProgram)
             }
             else if (userNumber == 2)
             {
+                PauseAndClearScreen();
+                bool gettingPayment = true;
+                while (gettingPayment)
+                {
+                    if (userCart.Count != 0)
+                    {
+                        decimal subtotal = 0;
+                        decimal orderSubtotal = 0;
+                        Console.WriteLine("YOUR CART");
+                        Console.WriteLine("---------------------------------------------------------------");
+                        Console.WriteLine(String.Format("{0,0}{1,18}{2,31}{3,12}", "", "Item", "Quantity/Price", "Subtotal"));
+                        Console.WriteLine("---------------------------------------------------------------");
+                        foreach (var item in userCart)
+                        {
+                            subtotal = (item.Value) * (item.Key.Price);
+                            Console.WriteLine(String.Format("{0,0}{1,30}{2,18}{3,13}", "", item.Key.Name, $"{item.Value} @ {item.Key.Price} ea.", $"${subtotal}"));
+                            orderSubtotal = orderSubtotal + subtotal;
+                        }
+                        decimal miStateTax = Math.Round((subtotal)*(0.06m),2);
+                        decimal orderTotal = orderSubtotal + miStateTax;
+                        Console.WriteLine("---------------------------------------------------------------");
+                        Console.WriteLine(String.Format("{0,0}{1,49}{2,12}", "", "Order Subtotal:", $"${orderSubtotal}"));
+                        Console.WriteLine(String.Format("{0,0}{1,49}{2,12}", "", "MI State Sales Tax:", $"${miStateTax}"));
+                        Console.WriteLine(String.Format("{0,0}{1,49}{2,12}", "", "Order Total:", $"${orderTotal}"));
+                        Console.WriteLine();
+                        bool gettingPayChoice = true;
+                        while (gettingPayChoice)
+                        {
+                            Console.WriteLine("How would you like to handle the charges?");
+                            Console.WriteLine("1. Credit/Debit Card");
+                            Console.WriteLine("2. Check");
+                            Console.WriteLine("3. Cash");
+                            Console.WriteLine();
+                            Console.Write("Enter the corresponding number for your choice: ");
+                            string userPayChoice = Console.ReadLine();
+                            Console.WriteLine();
+                            bool isAValidPayNumber = int.TryParse(userPayChoice, out int payNum);
+                            if (isAValidPayNumber)
+                            {
+                                switch (payNum)
+                                {
+                                    case 1:
+                                        //Credit/Debit will go here
+                                        break;
+                                    case 2:
+                                        //Check will go here
+                                        break;
+                                    case 3:
+                                        CashTransaction(orderTotal);
+                                        break;
+                                    default:
+                                        Console.WriteLine("Sorry, that number isn't a valid choice. Please try again.");
+                                        break;
+                                }
+                            gettingPayChoice = false;
+                            }
+                        }
+                        gettingPayment = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your cart is currently empty! Please add some items before checking out.");
+                        Console.WriteLine("Now returning to the Main Menu.");
+                        PauseAndClearScreen();
+                        gettingPayment = false;
+                    }
+                }
 
             }
             else if (userNumber == 3)
@@ -367,4 +436,53 @@ static void PauseAndClearScreen()
     Console.WriteLine("Press Enter to Continue.");
     Console.ReadLine();
     Console.Clear();
+}
+
+static void CashTransaction( decimal orderTotal)
+{
+    Console.WriteLine("BEGIN CASH PAYMENT TRANSACTION");
+    Console.WriteLine("---------------------------------------------------------------");
+    int billTotal = 0;
+    decimal coinTotal = 0;
+    bool gettingCashPayment = true;
+    while (gettingCashPayment)
+    {
+        bool gettingBillAmt = true;
+        while (gettingBillAmt)
+        {
+            Console.Write("Enter total of Bills Tendered:    $");
+            string userBills = Console.ReadLine();
+            bool isValidBillAmt = int.TryParse(userBills, out billTotal);
+            if (isValidBillAmt)
+            {
+                gettingBillAmt = false;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, that's not a valid number. Please try again.");
+            }
+        }
+        bool gettingCoinAmt = true;
+        while (gettingCoinAmt)
+        {
+            Console.Write("Enter total of Coins Tendered:    $");
+            string userCoins = Console.ReadLine();
+            bool isValidCoinAmt = decimal.TryParse(userCoins, out coinTotal);
+            if (isValidCoinAmt)
+            {
+                gettingCoinAmt = false;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, that's not a valid number. Please try again.");
+            }
+        }
+        CashPayment thisCashPayment = new CashPayment(billTotal, coinTotal);
+        Console.WriteLine();
+        Console.WriteLine($"Thanks for shopping with us today! Your Change Due is ${thisCashPayment.CalculateChange(orderTotal)}.");
+        Console.WriteLine("Now returning to the main menu.");
+        PauseAndClearScreen();
+        gettingCashPayment = false;
+    }
+
 }
