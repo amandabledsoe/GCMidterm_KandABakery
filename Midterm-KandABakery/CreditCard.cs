@@ -9,8 +9,7 @@ namespace Midterm_KandABakery
     public class CreditCard
     {
         public ulong CreditCardNumber { get; set; }
-        public int ExpirationMonth { get; set; }
-        public int ExpirationYear { get; set; }
+        public string ExpirationDate{ get; set; }
         public int CVV { get; set; }
 
         public CreditCard()
@@ -18,11 +17,10 @@ namespace Midterm_KandABakery
 
         }
 
-        public CreditCard(ulong creditCardNumber, int expirationMonth, int expirationYear, int cVV)
+        public CreditCard(ulong creditCardNumber, string expirationDate, int expirationYear, int cVV)
         {
             CreditCardNumber = creditCardNumber;
-            ExpirationMonth = expirationMonth;
-            ExpirationYear = expirationYear;
+            ExpirationDate = expirationDate;
             CVV = cVV;
         }
     }
