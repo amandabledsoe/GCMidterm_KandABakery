@@ -1,4 +1,5 @@
-﻿using Midterm_KandABakery;
+﻿using System.Text.RegularExpressions;
+using Midterm_KandABakery;
 
 //BAKERY ITEMS
 Product product1 = new Product("Talon's Loaf of Lemon", Category.BakeryItem, "Delicious & Royal Lemony Goodness", 1.99m);
@@ -340,6 +341,7 @@ while (runningProgram)
             }
             else if (userNumber == 2)
             {
+<<<<<<< Updated upstream
                 PauseAndClearScreen();
                 bool gettingPayment = true;
                 while (gettingPayment)
@@ -382,7 +384,69 @@ while (runningProgram)
                                 switch (payNum)
                                 {
                                     case 1:
-                                        //Credit/Debit will go here
+                                        bool usingCreditCard = true;
+                                        while (usingCreditCard)
+                                        {
+                                            ulong NewCreditCardNumber = 0;
+                                            bool gettingCreditCardNumber = true;
+                                            while (gettingCreditCardNumber)
+                                            {
+                                                Regex card = new Regex(@"^[1-9][0-9]{3}-[1-3]{4}-[0-9]{4}-[0-9]{4}$");
+                                                Console.WriteLine("Please enter your 16 digit Credit Card Number:");
+                                                string CreditCardNumber = Console.ReadLine();
+                                                bool TryNumber = ulong.TryParse(CreditCardNumber, out NewCreditCardNumber);
+                                                if (TryNumber == true)
+                                                {
+                                                    if (card.IsMatch(CreditCardNumber))
+                                                    {
+                                                        gettingCreditCardNumber = false;
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Sorry, that's not a valid number. Please try again.");
+                                                    }
+                                                }
+                                                string expirationDate = 0;
+                                                bool gettingCreditCardExp = true;
+                                                while (gettingCreditCardExp)
+                                                {
+                                                    Regex exp = new Regex(@"/\b(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})\b/");
+                                                    Console.WriteLine("Please enter your 4 digit Expiration Date (ex. 01/22):");
+                                                    expirationDate = Console.ReadLine();
+                                                    if (exp.IsMatch(expirationDate))
+                                                    {
+                                                        gettingCreditCardExp = false;
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Sorry, that's not a valid number. Please try again.");
+                                                    }
+                                                }
+                                                bool gettingCreditCardCVV = true;
+                                                while (gettingCreditCardCVV)
+                                                {
+                                                    Regex cvv = new Regex(@"^\d{3}$");
+                                                    Console.WriteLine("Please enter your 3 digit CVV number:");
+                                                    string CVVnumber = Console.ReadLine();
+                                                    bool CVVinput = int.TryParse(CVVnumber, out int newCVVnumber);
+                                                    if (CVVinput == true)
+                                                    {
+                                                        if (card.IsMatch(CVVnumber))
+                                                        {
+                                                            gettingCreditCardCVV = false;
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine("Sorry, that's not a valid number. Please try again.");
+                                                        }
+                                                    }
+
+                                                    }
+
+                                                }
+                                            CreditCard thisCreditCard = new CreditCard()
+                                            }
+                                        }   
                                         break;
                                     case 2:
                                         //Check will go here
@@ -407,8 +471,7 @@ while (runningProgram)
                         gettingPayment = false;
                     }
                 }
-
-            }
+                }
             else if (userNumber == 3)
             {
                 PauseAndClearScreen();
