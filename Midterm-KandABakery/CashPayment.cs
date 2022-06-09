@@ -30,7 +30,15 @@ namespace Midterm_KandABakery
         }
         public decimal CalculateChange(decimal orderTotal)
         {
-            return Math.Round(TotalCashTendered-orderTotal,2);
+            if (TotalCashTendered<orderTotal)
+            {
+                return -1;
+            }
+            else
+            {
+                return Math.Round(TotalCashTendered-orderTotal,2);
+            }
+            return -1;
         }
     }
 }

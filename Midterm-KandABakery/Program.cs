@@ -479,12 +479,24 @@ static void CashTransaction(decimal orderTotal, Dictionary<Product,int> userCart
             }
         }
         CashPayment thisCashPayment = new CashPayment(billTotal, coinTotal);
-        Console.WriteLine();
-        Console.WriteLine($"Thanks for shopping with us today! Your Change Due is ${thisCashPayment.CalculateChange(orderTotal)}.");
-        Console.WriteLine("Now returning to the main menu.");
-        userCart.Clear();
-        PauseAndClearScreen();
-        gettingCashPayment = false;
+        bool gettingChange = true;
+        while (gettingChange)
+        {
+            if (thisCashPayment.CalculateChange(orderTotal) != -1)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Thanks for shopping with us today! Your Change Due is ${thisCashPayment.CalculateChange(orderTotal)}.");
+                Console.WriteLine("Now returning to the main menu.");
+                userCart.Clear();
+                PauseAndClearScreen();
+                gettingChange = false;
+                gettingCashPayment = false;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, looks like that amount wont cover the total. Let's enter a new amount.");
+                gettingChange = false;
+            }
+        }
     }
-
 }
