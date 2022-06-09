@@ -1,3 +1,4 @@
-﻿<Properties StartupConfiguration="{FD502D76-CA78-4999-BC1F-0E7FE995AB7B}|Default">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{FD502D76-CA78-4999-BC1F-0E7FE995AB7B}|Default">
+  <MonoDevelop.Ide.ItemProperties.Midterm-KandABakery PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>
