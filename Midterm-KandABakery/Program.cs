@@ -388,7 +388,7 @@ while (runningProgram)
                                         //Check will go here
                                         break;
                                     case 3:
-                                        CashTransaction(orderTotal);
+                                        CashTransaction(orderTotal, userCart);
                                         break;
                                     default:
                                         Console.WriteLine("Sorry, that number isn't a valid choice. Please try again.");
@@ -411,6 +411,7 @@ while (runningProgram)
             }
             else if (userNumber == 3)
             {
+                PauseAndClearScreen();
                 gettingInput = false;
                 runningProgram = false;
             }
@@ -438,7 +439,7 @@ static void PauseAndClearScreen()
     Console.Clear();
 }
 
-static void CashTransaction( decimal orderTotal)
+static void CashTransaction(decimal orderTotal, Dictionary<Product,int> userCart)
 {
     Console.WriteLine("BEGIN CASH PAYMENT TRANSACTION");
     Console.WriteLine("---------------------------------------------------------------");
@@ -481,6 +482,7 @@ static void CashTransaction( decimal orderTotal)
         Console.WriteLine();
         Console.WriteLine($"Thanks for shopping with us today! Your Change Due is ${thisCashPayment.CalculateChange(orderTotal)}.");
         Console.WriteLine("Now returning to the main menu.");
+        userCart.Clear();
         PauseAndClearScreen();
         gettingCashPayment = false;
     }
