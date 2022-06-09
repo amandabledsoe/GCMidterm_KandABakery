@@ -137,11 +137,7 @@ while (runningProgram)
                                 {
                                     Console.WriteLine($"{item.Key.Name}\t\t{item.Value}");
                                 }
-                                Console.WriteLine();
-                                foreach (var item in inventory.Products)
-                                {
-                                    Console.WriteLine($"Item: {item.Key.Name}\t\tCount On Hand:{item.Value}");
-                                }
+                                
                             }
                             PauseAndClearScreen();
 
@@ -198,6 +194,7 @@ while (runningProgram)
                                         }
 
                                         gettingCoffeeItem = false;
+
                                     }
                                 }
                                 if (!coffeeitemIsPresent)
@@ -215,15 +212,11 @@ while (runningProgram)
                                 {
                                     Console.WriteLine($"{item.Key.Name}\t\t{item.Value}");
                                 }
-                                Console.WriteLine();
-                                foreach (var item in inventory.Products)
-                                {
-                                    Console.WriteLine($"Item: {item.Key.Name}\t\tCount On Hand:{item.Value}");
-                                }
                             }
                             PauseAndClearScreen();
 
                             gettingCoffeeItem = false;
+                            gettingBakeryChoice = false;
                         }
                         else if (orderNumber2 == 3)
                         {
@@ -327,10 +320,6 @@ while (runningProgram)
                                     Console.WriteLine($"{item.Key.Name}\t\t{item.Value}");
                                 }
                                 Console.WriteLine();
-                                foreach (var item in inventory.Products)
-                                {
-                                    Console.WriteLine($"Item: {item.Key.Name}\t\tCount On Hand:{item.Value}");
-                                }
                             }
                             PauseAndClearScreen();
                             gettingBakeryChoice = false;
