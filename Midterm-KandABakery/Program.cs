@@ -341,7 +341,6 @@ while (runningProgram)
             }
             else if (userNumber == 2)
             {
-<<<<<<< Updated upstream
                 PauseAndClearScreen();
                 bool gettingPayment = true;
                 while (gettingPayment)
@@ -406,7 +405,7 @@ while (runningProgram)
                                                         Console.WriteLine("Sorry, that's not a valid number. Please try again.");
                                                     }
                                                 }
-                                                string expirationDate = 0;
+                                                string expirationDate = null;
                                                 bool gettingCreditCardExp = true;
                                                 while (gettingCreditCardExp)
                                                 {
@@ -440,13 +439,10 @@ while (runningProgram)
                                                             Console.WriteLine("Sorry, that's not a valid number. Please try again.");
                                                         }
                                                     }
-
-                                                    }
-
                                                 }
-                                            CreditCard thisCreditCard = new CreditCard()
                                             }
-                                        }   
+                                            CreditCard thisCreditCard = new CreditCard();
+                                        }
                                         break;
                                     case 2:
                                         //Check will go here

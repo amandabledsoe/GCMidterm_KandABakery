@@ -43,3 +43,18 @@ C:\Grand Circus Master Repository 2022\CODE\MIDTERM - Point of Sale Terminal Pro
 C:\Grand Circus Master Repository 2022\CODE\MIDTERM - Point of Sale Terminal Project\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.pdb
 C:\Grand Circus Master Repository 2022\CODE\MIDTERM - Point of Sale Terminal Project\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.genruntimeconfig.cache
 C:\Grand Circus Master Repository 2022\CODE\MIDTERM - Point of Sale Terminal Project\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\ref\Midterm-KandABakery.dll
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.exe
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.deps.json
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.runtimeconfig.json
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.dll
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\bin\Debug\net6.0\Midterm-KandABakery.pdb
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.csproj.AssemblyReference.cache
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.GeneratedMSBuildEditorConfig.editorconfig
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.AssemblyInfoInputs.cache
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.AssemblyInfo.cs
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.csproj.CoreCompileInputs.cache
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.dll
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\refint\Midterm-KandABakery.dll
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.pdb
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\Midterm-KandABakery.genruntimeconfig.cache
+C:\Grand Circus Master Repository 2022\CODE\UNIT X - TITLE\GCMidterm_KandABakery\Midterm-KandABakery\obj\Debug\net6.0\ref\Midterm-KandABakery.dll
